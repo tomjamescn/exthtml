@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link id="theme-link" rel="stylesheet">
+
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex: 1;
+      }
+
+      *:not(:defined) {
+        display: none;
+      }
+
+      #splashscreen {
+        background: #eeeeee;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999999;
+      }
+    </style>
+
+    <script>
+      // Supported browser
+      if (window.ShadowRoot && window.customElements && HTMLLinkElement.prototype.hasOwnProperty("import")) {
+        let theme = sessionStorage.getItem("theme") || "/build/dist/stylesheets/material.theme.css";
+        document.querySelector("#theme-link").setAttribute("href", theme);
+        window.addEventListener("load", function(event) {window["splashscreen"].remove()});
+      }
+      
+    </script>
+
+    <script src="/build/dist/js/prism.js" data-manual></script>
+    <script src="/build/dist/js/xel.js" data-manual></script>
+    
+</head>
+<body>
+    <div id="splashscreen"></div>
+    <xel-myapp id="app"></xel-app>
+</body>
+</html>
