@@ -9,7 +9,7 @@
     "watch": "npm run clean && npm run build && cross-env IP=0.0.0.0 PORT=8080 webpack-dev-server --config config/webpack.config.js --env watch",
     "build": "node ./src/build.js"
   },
-  "author": "tomjamescn <tomjamescn@gmail.com> ()",
+  "author": "tomjamescn <tomjamescn@gmail.com> (https://github.com/tomjamescn)",
   "license": "MIT",
   "devDependencies": {
     "cross-env": "^4.0.0",

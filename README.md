@@ -1,6 +1,11 @@
 ## exthtml
 #### Extension for html element. Based on https:\/\/xel\-toolkit.org.
 
+#### New Feature:
+- Based on Webpack stack
+- Remove fireball
+...
+
 ### Installation
 ```bash
 npm install exthtml
