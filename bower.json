@@ -1,0 +1,21 @@
+{
+  "name": "exthtml",
+  "description": "Extension for html element. Based on https://xel-toolkit.org.",
+  "main": "index.js",
+  "authors": [
+    "tomjamescn <tomjamescn@gmail.com> (https://github.com/tomjamescn)"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tomjamescn/exthtml",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vaadin-core-elements": "^1.6.0",
+    "HTML5-Reset": "^2.1.3"
+  }
+}

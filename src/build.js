@@ -58,6 +58,8 @@ let build = () => {
     xelMinJS = xelMinJS.replace(re, '');
     xelMinJS = vulcanizeScript(xelMinJS);
 
+    console.log(xelMinJS);
+
     writeFile(`${__dirname}/../build/dist/js/xel.js`, `${xelMinJS}`);
 
     // xelMinJS = minifyScript(xelMinJS);
@@ -120,6 +122,43 @@ let vulcanizeScript = (scriptJS) => {
             let hrefEndIndex = part.indexOf('"', hrefStartIndex);
             let href = part.substring(hrefStartIndex, hrefEndIndex);
             let styleCSS = readFile(`${__dirname}/${href}`);
+            let minifiedCSS = Csso.minify(styleCSS).css;
+
+            result += "<style>" + minifiedCSS + "</style>";
+        } else {
+            result += part;
+        }
+    }
+
+    return result;
+}
+
+
+let importHtml = (scriptJS) => {
+    let result = "";
+    let parts = [""];
+
+    for (let i = 0; i < scriptJS.length; i += 1) {
+        let char = scriptJS[i];
+
+        if (char === "<" && scriptJS.substr(i, 6) === "<link ") {
+            parts.push(char);
+        } else if (char === ">" && parts[parts.length - 1].startsWith("<link")) {
+            parts[parts.length - 1] += char;
+            parts.push("");
+        } else {
+            parts[parts.length - 1] += char;
+        }
+    }
+
+    parts = parts.filter($0 => $0 !== "");
+
+    for (let part of parts) {
+        if (part.startsWith("<link ") && part.includes("rel=\"import\"")) {
+            let hrefStartIndex = part.indexOf('href="') + 'href="'.length;
+            let hrefEndIndex = part.indexOf('"', hrefStartIndex);
+            let href = part.substring(hrefStartIndex, hrefEndIndex);
+            let html = readFile(`${__dirname}/${href}`);
             let minifiedCSS = Csso.minify(styleCSS).css;
 
             result += "<style>" + minifiedCSS + "</style>";
