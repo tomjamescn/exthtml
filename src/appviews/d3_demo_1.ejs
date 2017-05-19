@@ -1,0 +1,83 @@
+<div class="view" id="about-view">
+  <div class="inner">
+    <x-card class="mainChart">
+        <main>
+        
+            <svg id="svg1" width="960" height="500"></svg>
+          
+        </main>
+
+        <x-contextmenu>
+            <x-menu>
+              <x-menuitem>
+                <x-label>Undo</x-label>
+              </x-menuitem>
+
+              <x-menuitem>
+                <x-label>Redo</x-label>
+              </x-menuitem>
+
+              <hr>
+
+              <x-menuitem>
+                <x-label>Cut</x-label>
+              </x-menuitem>
+
+              <x-menuitem>
+                <x-label>Copy</x-label>
+              </x-menuitem>
+
+              <x-menuitem>
+                <x-label>Paste</x-label>
+              </x-menuitem>
+
+              <hr>
+
+              <x-menuitem>
+                <x-label>Refresh</x-label>
+              </x-menuitem>
+            </x-menu>
+        </x-contextmenu>
+    </x-card>
+    <x-card class="anotherChart">
+        <main>
+        
+            <svg id="svg2" width="960" height="500"></svg>
+            
+        </main>
+
+        <x-contextmenu>
+            <x-menu>
+              <x-menuitem>
+                <x-label>Undo</x-label>
+              </x-menuitem>
+
+              <x-menuitem>
+                <x-label>Redo</x-label>
+              </x-menuitem>
+
+              <hr>
+
+              <x-menuitem>
+                <x-label>Cut</x-label>
+              </x-menuitem>
+
+              <x-menuitem>
+                <x-label>Copy</x-label>
+              </x-menuitem>
+
+              <x-menuitem>
+                <x-label>Paste</x-label>
+              </x-menuitem>
+
+              <hr>
+
+              <x-menuitem>
+                <x-label>Refresh</x-label>
+              </x-menuitem>
+            </x-menu>
+        </x-contextmenu>
+    </x-card>
+  </div>
+  <script src="<%= htmlWebpackPlugin.files.js %>"></script>
+</div>

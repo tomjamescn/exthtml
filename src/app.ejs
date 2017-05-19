@@ -7,17 +7,14 @@
     <link id="theme-link" rel="stylesheet">
 
     <style>
+
       html, body {
         width: 100%;
         height: 100%;
         display: flex;
         flex: 1;
       }
-
-      *:not(:defined) {
-        display: none;
-      }
-
+      
       #splashscreen {
         background: #eeeeee;
         position: fixed;
@@ -39,12 +36,47 @@
       
     </script>
 
+    <link href="bower_components/vaadin-core-elements/vaadin-core-elements.html" rel="import">
+
     <script src="/build/dist/js/prism.js" data-manual></script>
     <script src="/build/dist/js/xel.js" data-manual></script>
     
 </head>
 <body>
+    <!--
+    <x-dialog id="dialogDatePicker">
+      <vaadin-date-picker label=""></vaadin-date-picker>
+    </x-dialog>
+
+    <x-button id="button">
+      <x-label>Show</x-label>
+    </x-button>
+
+    <script>
+      let dialog = document.querySelector("x-dialog");
+      let button = document.querySelector("#button");
+      button.addEventListener("click", () => dialog.opened = true);
+    </script>
+    -->
+
+    <x-dialog id="dialog-date-picker">
+      <main>
+        <vaadin-date-picker id="date-picker" label=""></vaadin-date-picker>
+      </main>
+
+      <footer>
+        <x-button id="agree-button" skin="flat">
+          <x-label>确认</x-label>
+        </x-button>
+
+        <x-button toggled id="disagree-button" skin="flat">
+          <x-label>取消</x-label>
+        </x-button>
+      </footer>
+    </x-dialog>
+  
     <div id="splashscreen"></div>
+
     <xel-myapp id="app"></xel-app>
 </body>
 </html>

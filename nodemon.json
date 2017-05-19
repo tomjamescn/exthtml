@@ -1,0 +1,5 @@
+{
+  "verbose": true,
+  "ignore": ["build", "node_modules", "src/prismjs", "data"],
+  "ext": "js css html"
+}

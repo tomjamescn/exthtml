@@ -69,8 +69,12 @@ let build = () => {
     Fse.copySync(`${__dirname}/../node_modules/prismjs/prism.js`, `${__dirname}/../build/dist/js/prism.js`);
 
     Fse.copySync(`${__dirname}/xel/images`, `${__dirname}/../build/dist/images`);
-    Fse.copySync(`${__dirname}/xel/stylesheets`, `${__dirname}/../build/dist/stylesheets`);
+    createDir(`${__dirname}/../build/dist/stylesheets`);
+    Fse.copySync(`${__dirname}/xel/stylesheets/macos.theme.css`, `${__dirname}/../build/dist/stylesheets/macos.theme.css`);
+    Fse.copySync(`${__dirname}/xel/stylesheets/material.theme.css`, `${__dirname}/../build/dist/stylesheets/material.theme.css`);
     Fse.copySync(`${__dirname}/xel/views`, `${__dirname}/../build/dist/views`);
+    Fse.copySync(`${__dirname}/appviews`, `${__dirname}/../build/dist/appviews`);
+    Fse.copySync(`${__dirname}/../data`, `${__dirname}/../build/dist/data`);
 
 };
 

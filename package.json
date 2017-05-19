@@ -4,7 +4,7 @@
   "description": "Extension for html element. Based on https://xel-toolkit.org.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch config --watch src --watch package.json  --exec \"npm run watch\"",
+    "dev": "nodemon  --exec \"npm run watch\"",
     "clean": "rimraf -rf ./build",
     "watch": "npm run clean && npm run build && cross-env IP=0.0.0.0 PORT=8080 webpack-dev-server --config config/webpack.config.js --env watch",
     "build": "node ./src/build.js"
